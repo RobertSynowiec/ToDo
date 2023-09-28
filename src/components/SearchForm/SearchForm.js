@@ -11,7 +11,7 @@ const SearchForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch({ type: 'UPDATE_SEARCHCARD', payload: { searchCard } });
+        dispatch({ type: 'UPDATE_SEARCHCARD', payload: searchCard });
         setSearchCard('');
     };
     return (
