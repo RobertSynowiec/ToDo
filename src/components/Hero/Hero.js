@@ -1,4 +1,4 @@
-import styles from './Hero.module.scss';
+import styles from '../PageTitle/PageTitle.module.scss';
 
 const Hero = () => {
     return (
