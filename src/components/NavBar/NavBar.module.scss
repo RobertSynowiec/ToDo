@@ -1,0 +1,27 @@
+@import '../../styles/settings.scss';
+
+.navBar{
+    background-color: darken($color-dark, 3%);
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        ul {
+            display: flex;
+            flex-direction: row;
+            li{
+                padding-right:  10px;
+                list-style: none;
+                color: $color-light;
+                i {
+                    font-size: 23px;
+                }
+                a{
+                    text-decoration: none;
+                    color: $color-light;
+                }
+            }
+        }
+    }
+}
