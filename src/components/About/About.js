@@ -1,4 +1,4 @@
-import styles from '../src/components/PageTitle/PageTitle.module.scss';
+import styles from '../PageTitle/PageTitle.module.scss';
 
 const About = () => {
     return (

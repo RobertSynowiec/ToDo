@@ -12,9 +12,9 @@ const NavBar = () => {
                         <li>< i className='fa fa-tasks'></i></li>
                     </ul>
                     <ul>
-                        <li><a href='#'>Home</a></li>
-                        <li><a href='#'>Favorite</a></li>
-                        <li><a href='#'>About</a> </li>
+                        <li><a href='/'>Home</a></li>
+                        <li><a href='/about'>Favorite</a></li>
+                        <li><a href='/favorite'>About</a> </li>
                     </ul>
                 </div>
             </Container>
