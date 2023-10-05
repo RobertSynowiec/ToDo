@@ -3,15 +3,16 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { addSearchString } from '../../redux/store';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, } from 'react';
 import { useLocation } from 'react-router-dom';
 
-
 const SearchForm = () => {
+
     const [searchString, setsearchString] = useState('');
+
     const location = useLocation();
 
-    const pathsToReset = ['/list/1', '/list/2'];
+    const pathsToReset = [location.pathname];
 
     useEffect(() => {
         const isReturningToTheSamePage = pathsToReset.includes(location.pathname);
