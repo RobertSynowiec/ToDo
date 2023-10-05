@@ -2,11 +2,25 @@ import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { addSearchString } from '../../redux/store';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 
 const SearchForm = () => {
     const [searchString, setsearchString] = useState('');
+    const location = useLocation();
+
+    const pathsToReset = ['/list/1', '/list/2'];
+
+    useEffect(() => {
+        const isReturningToTheSamePage = pathsToReset.includes(location.pathname);
+
+        if (isReturningToTheSamePage) {
+            dispatch(addSearchString(searchString));
+            setsearchString('');
+        }
+    }, [location.pathname]);
 
     const dispatch = useDispatch();
 
@@ -24,5 +38,8 @@ const SearchForm = () => {
         </form>
     );
 };
+
+
+
 
 export default SearchForm;
