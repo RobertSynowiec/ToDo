@@ -1,0 +1,27 @@
+.listForm{
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+        label{
+            padding: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 12px 0;
+
+        }
+    }
+@media only screen and (max-width: 768px)  {
+    .listForm{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: column;
+        label{
+            padding: 10px 0;
+        }
+    }
+}
