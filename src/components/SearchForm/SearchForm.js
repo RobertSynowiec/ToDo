@@ -7,20 +7,15 @@ import React, { useState, useEffect, } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const SearchForm = () => {
+    console.log(' SearchForm działa')
 
     const [searchString, setsearchString] = useState('');
 
     const location = useLocation();
 
-    const pathsToReset = [location.pathname];
-
     useEffect(() => {
-        const isReturningToTheSamePage = pathsToReset.includes(location.pathname);
-
-        if (isReturningToTheSamePage) {
-            dispatch(addSearchString(searchString));
-            setsearchString('');
-        }
+        console.log(' useEffect działa')
+        dispatch(addSearchString(searchString));
     }, [location.pathname]);
 
     const dispatch = useDispatch();
