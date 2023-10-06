@@ -1,19 +1,23 @@
 import styles from './Card.module.scss';
 import ButtonFavorite from '../ButtonFavorite/ButtonFavorite'
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addSetIsFavorite } from '../../redux/store'
 
 const Card = props => {
 
-    const [isActive, setIsActive] = React.useState(false);
-    console.log('isActive ', isActive)
+    const favorite = useSelector((state) =>
+        state.cards.find((card) => card.id === props.cardId)?.isFavorite
+    )
+    const dispatch = useDispatch();
 
-    const toggleActive = () => {
-        setIsActive(!isActive);
+    const toggleFavorite = () => {
+        dispatch(addSetIsFavorite(props.cardId));
     };
 
     return (
         <li className={styles.card}>{props.title}
-            <ButtonFavorite active={isActive} onClick={toggleActive} />
+            <ButtonFavorite favorite={favorite} onClick={toggleFavorite} />
         </li >
     );
 };

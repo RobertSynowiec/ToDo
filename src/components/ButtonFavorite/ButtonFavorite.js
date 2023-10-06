@@ -2,11 +2,11 @@ import styles from './ButtonFavorite.module.scss';
 import React from 'react';
 import clsx from 'clsx';
 
-const ButtonFavorite = ({ active, onClick }) => {
-    console.log(active);
+const ButtonFavorite = ({ favorite, onClick }) => {
+
     return (
         <button
-            className={clsx(styles.favoriteButton, { [styles.active]: active })}
+            className={clsx(styles.favoriteButton, { [styles.favorite]: favorite })}
             onClick={onClick}
         >
             <span className="fa fa-star-o" />

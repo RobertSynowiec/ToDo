@@ -26,7 +26,7 @@ export const addList = payload => ({ type: 'ADD_LIST', payload });
 export const addSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
 // do obsługi favorite
-export const addSetIsActive = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
+export const addSetIsFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
 
 const reducer = (state, action) => {

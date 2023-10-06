@@ -4,14 +4,16 @@ import CardForm from '../CardForm/CardForm';
 import { useSelector } from 'react-redux';
 import { getFilteredCards } from '../../redux/store';
 import { useMemo } from 'react';
+import shortid from 'shortid';
 
 const Column = props => {
     const cards = useSelector(state => getFilteredCards(state, props.id));
 
     const renderedCards = useMemo(() => cards.map(card =>
         <Card
-            key={card.id}
+            key={shortid()}
             title={card.title}
+            cardId={card.id}
         />), [cards])
 
 
