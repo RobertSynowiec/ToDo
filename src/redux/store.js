@@ -28,6 +28,9 @@ export const addSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payloa
 // do obsługi favorite
 export const addSetIsFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
+export const selectFavoriteCards = (state) =>
+    state.cards.filter((card) => card.isFavorite);
+
 
 const reducer = (state, action) => {
     switch (action.type) {
