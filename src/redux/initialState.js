@@ -25,7 +25,6 @@ const initialState = {
             listId: '2',
         }
     ],
-
     cards: [
         { id: '1', columnId: '1', title: 'This is Going to Hurt', isFavorite: '' },
         { id: '2', columnId: '1', title: 'Interpreter of Maladies', isFavorite: '' },
