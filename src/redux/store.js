@@ -2,19 +2,14 @@ import initialState from './initialState';
 import shortid from 'shortid';
 import { strContains } from '../utils/strContains';
 import { createStore, combineReducers } from 'redux';
-import listsReducer from './listsRedux'
+import listsReducer from './listsRedux';
+import columnsReducer from './columnsRedux'
 
 //selectors
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards
     .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
-export const getAllColumns = (state => state.columns);
-
-export const getColumnsByList = ({ columns }, listId) => columns
-    .filter(column => column.listId === listId);
-
 // action creators
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
 
@@ -26,14 +21,6 @@ export const addSetIsFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payl
 export const selectFavoriteCards = (state) =>
     state.cards.filter((card) => card.isFavorite);
 
-const columnsReducer = (statePart = [], action) => {
-    switch (action.type) {
-        case 'ADD_COLUMN':
-            return [...statePart, { ...action.payload, id: shortid() }];
-        default:
-            return statePart;
-    }
-}
 
 const cardsReducer = (statePart = [], action) => {
     switch (action.type) {
