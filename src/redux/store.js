@@ -1,29 +1,9 @@
 import initialState from './initialState';
-import shortid from 'shortid';
-import { strContains } from '../utils/strContains';
 import { createStore, combineReducers } from 'redux';
 import listsReducer from './listsRedux';
 import columnsReducer from './columnsRedux'
 import cardsReducer from './cardsRedux'
-
-//selectors
-export const getFilteredCards = ({ cards, searchString }, columnId) => cards
-    .filter(card => card.columnId === columnId && strContains(card.title, searchString));
-
-// action creators
-
-
-export const addSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
-
-
-const searchStringReducer = (statePart = '', action) => {
-    switch (action.type) {
-        case 'UPDATE_SEARCHSTRING':
-            return action.payload
-        default:
-            return statePart;
-    }
-}
+import searchStringReducer from './searchStringRedux';
 
 
 const subreducers = {
