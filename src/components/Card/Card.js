@@ -2,7 +2,7 @@ import styles from './Card.module.scss';
 import ButtonFavorite from '../ButtonFavorite/ButtonFavorite'
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addSetIsFavorite } from '../../redux/store'
+import { addSetIsFavorite } from '../../redux/cardsRedux'
 
 const Card = props => {
 
