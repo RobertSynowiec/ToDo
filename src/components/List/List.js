@@ -2,7 +2,7 @@ import styles from './List.module.scss';
 import Column from './../Column/Column';
 import ColumnForm from './../ColumnForm/ColumnForm';
 import { useSelector } from 'react-redux';
-import { getColumnsByList } from '../../redux/columnsRedux';
+import { makeSelectColumnsByList } from '../../redux/columnsRedux';
 import { getListById } from '../../redux/listsRedux';
 import { useParams } from 'react-router';
 import SearchForm from '../SearchForm/SearchForm'
@@ -13,7 +13,9 @@ const List = () => {
 
     const listData = useSelector(state => getListById(state, listId));
 
-    const columns = useSelector(state => getColumnsByList(state, listId));
+    const selectColumnsByList = makeSelectColumnsByList();
+
+    const columns = useSelector((state) => selectColumnsByList(state, listId));
 
     if (!listData) return <Navigate to="/" />
     return (

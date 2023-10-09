@@ -1,7 +1,18 @@
 import shortid from 'shortid';
+import { createSelector } from 'reselect';
 
-export const selectFavoriteCards = (state) =>
-    state.cards.filter((card) => card.isFavorite);
+//export const selectFavoriteCards = (state) =>
+// state.cards.filter((card) => card.isFavorite);
+
+
+// Selektor wybierający wszystkie karty
+const selectAllCards = (state) => state.cards;
+
+// Tworzenie memoizowanego selektora za pomocą createSelector
+export const selectFavoriteCards = createSelector(
+    [selectAllCards],
+    (cards) => cards.filter((card) => card.isFavorite)
+);
 
 export const getCardsById = ({ cards }, cardId) => cards.find(card => card.id === cardId);
 

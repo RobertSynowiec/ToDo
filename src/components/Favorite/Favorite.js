@@ -6,7 +6,9 @@ import shortid from 'shortid';
 
 const Favorite = () => {
 
-    const favoriteCards = useSelector(selectFavoriteCards);
+    //const favoriteCards = useSelector(selectFavoriteCards);
+
+    const favoriteCards = useSelector((state) => selectFavoriteCards(state))
 
     return (
         <div className={styles.hero}>

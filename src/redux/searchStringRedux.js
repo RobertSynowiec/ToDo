@@ -1,11 +1,19 @@
 import { strContains } from '../utils/strContains';
+import { createSelector } from 'reselect';
 
-//selectors
-export const getFilteredCards = ({ cards, searchString }, columnId) => cards
-    .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
-// action creators
+const selectAllCards = (state) => state.cards;
 
+const selectSearchString = (state) => state.searchString;
+
+const selectFilteredCards = (cards, searchString, columnId) =>
+    cards.filter((card) => card.columnId === columnId && strContains(card.title, searchString));
+
+export const makeSelectFilteredCards = () =>
+    createSelector(
+        [selectAllCards, selectSearchString, (_, columnId) => columnId],
+        (cards, searchString, columnId) => selectFilteredCards(cards, searchString, columnId)
+    );
 
 export const addSearchString = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
